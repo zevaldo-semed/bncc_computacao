@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planeja BNCC Computação</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Planeja BNCC Computação">
+        <span class="brand-mark">⌘</span>
+        <span>Planeja<span>BNCC</span></span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <a class="active" href="#planejar">Planejar</a>
+        <a href="#cobertura">Cobertura</a>
+        <a href="#biblioteca">Minhas aulas</a>
+      </nav>
+      <button class="button ghost" id="printPlan">Imprimir plano</button>
+    </header>
+
+    <main id="inicio">
+      <section class="hero" id="planejar">
+        <div>
+          <p class="eyebrow">PLANEJAMENTO INTEGRADO</p>
+          <h1>Da habilidade à aula que <em>faz sentido.</em></h1>
+          <p class="hero-copy">Encontre articulações reais entre o seu componente curricular e a BNCC Computação — e transforme-as em experiências de aprendizagem.</p>
+        </div>
+        <div class="hero-card">
+          <span class="spark">✦</span>
+          <strong id="statMatches">0</strong>
+          <span>integrações disponíveis<br />na sua matriz</span>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Gerador de plano de aula">
+        <aside class="filters">
+          <div class="section-label"><span>01</span><h2>Encontre uma integração</h2></div>
+          <p class="hint">Comece pelo que você vai ensinar. Os filtros mostram as combinações já mapeadas.</p>
+          <label>Ano / série<select id="yearFilter"><option value="">Todos os anos</option></select></label>
+          <label>Bimestre<select id="termFilter"><option value="">Todos os bimestres</option></select></label>
+          <label>Componente curricular<select id="subjectFilter"><option value="">Todos os componentes</option></select></label>
+          <label>Eixo de Computação<select id="axisFilter"><option value="">Todos os eixos</option></select></label>
+          <button class="button secondary" id="clearFilters">Limpar filtros</button>
+          <p class="result-count" id="resultCount"></p>
+        </aside>
+
+        <section class="matches">
+          <div class="section-label"><span>02</span><h2>Escolha a articulação</h2></div>
+          <div id="matchList" class="match-list" aria-live="polite"></div>
+        </section>
+      </section>
+
+      <section id="planner" class="planner hidden" aria-live="polite">
+        <div class="planner-heading">
+          <div class="section-label"><span>03</span><h2>Monte seu plano</h2></div>
+          <p>Personalize a proposta e salve uma versão pronta para a sua turma.</p>
+        </div>
+        <div class="plan-controls">
+          <label>Tempo disponível<select id="duration"><option>50 minutos</option><option>100 minutos</option><option>2 a 3 aulas</option><option>Projeto de unidade</option></select></label>
+          <label>Recursos<select id="resources"><option value="devices">Com dispositivos</option><option value="unplugged">Sem dispositivos</option><option value="hybrid">Híbrido</option></select></label>
+          <label>Nome da turma<input id="className" placeholder="Ex.: 7º A" /></label>
+          <label>Contexto / tema<input id="theme" placeholder="Ex.: consumo consciente" /></label>
+          <button class="button primary" id="generatePlan">Gerar plano integrado →</button>
+        </div>
+        <article id="planOutput" class="plan-output"></article>
+        <div class="plan-actions">
+          <button class="button secondary" id="savePlan">Salvar em Minhas aulas</button>
+          <button class="button ghost" id="copyPlan">Copiar texto</button>
+        </div>
+      </section>
+
+      <section class="coverage" id="cobertura">
+        <div><p class="eyebrow">VISÃO DE COBERTURA</p><h2>O que já está contemplado?</h2><p>Acompanhe as articulações da matriz e priorize os eixos ainda pouco explorados.</p></div>
+        <div id="coverageCards" class="coverage-cards"></div>
+      </section>
+
+      <section class="library" id="biblioteca">
+        <div class="section-label"><span>04</span><h2>Minhas aulas</h2></div>
+        <div id="savedPlans" class="saved-plans"><p class="empty">Os planos que você salvar aparecerão aqui neste navegador.</p></div>
+      </section>
+    </main>
+    <footer>Planeja BNCC Computação · Baseado na matriz curricular fornecida</footer>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
